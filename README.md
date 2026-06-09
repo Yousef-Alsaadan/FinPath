@@ -1,88 +1,188 @@
-# FinPath — Personal Finance Manager
+<div align="center">
+  <img src="public/logo.svg" alt="FinPath" width="84" height="84" />
+  <h1>FinPath</h1>
+  <p><strong>Smart personal finance manager for tracking income, expenses, budgets, fixed bills, and financial goals — built around your own financial month.</strong></p>
+  <p>
+    🔗 <strong>Live demo:</strong> <a href="https://your-finpath-url.com/">https://your-finpath-url.com/</a>
+  </p>
+</div>
 
-A production-ready, bilingual (Arabic / English) personal finance PWA for tracking
-expenses, income, budgets, fixed bills and savings goals — built around your own
-**financial month** rather than the calendar month.
+FinPath is an offline-first **Progressive Web App (PWA)** that helps individuals manage their finances with complete privacy. Track income, expenses, budgets, recurring bills, and savings goals while monitoring your financial health through interactive dashboards and analytics.
 
-Built with **React + Vite + Tailwind CSS + React Router + i18next + Recharts +
-Framer Motion**, with all data stored locally in the browser (no account, no server).
+Unlike traditional finance apps that rely on calendar months, FinPath is built around your own **financial month start date**, allowing you to align budgeting with your salary cycle and personal financial planning.
+
+Everything runs locally in your browser — no account, no server, and no subscription required.
 
 ---
 
-## Quick start
+# ✨ Features
+
+* 💰 **Income Management** — add recurring or one-time income sources and track total earnings.
+* 📊 **Financial Dashboard** — monitor income, expenses, remaining budget, savings rate, goal progress, and financial health score.
+* 📅 **Custom Financial Month** — choose your own financial month start day instead of relying on calendar months.
+* 🎯 **Financial Goals** — create savings goals, track contributions, monitor progress, and estimate completion dates.
+* 💳 **Expense Tracking** — add, edit, duplicate, delete, search, and categorize expenses.
+* 📈 **Budget Planning** — create category budgets and receive alerts when approaching or exceeding limits.
+* 🔄 **Fixed Expenses** — manage recurring bills such as rent, utilities, subscriptions, and internet services.
+* 📉 **Analytics & Insights** — spending trends, category breakdowns, savings analysis, and long-term financial reports.
+* 🌍 **Arabic & English** with full RTL/LTR support and instant language switching.
+* 🌗 **Dark & Light Themes** with Dark Mode enabled by default.
+* 📱 **Installable PWA** with guided Add-to-Home-Screen instructions for iOS, Android, and Desktop.
+* 💾 **Local-First Storage** — all data is stored securely in your browser using localStorage.
+* 📦 **Import & Export Backups** — backup your data as JSON and restore it anytime.
+
+# 🛠 Tech Stack
+
+|              |                                                          |
+| ------------ | -------------------------------------------------------- |
+| Framework    | React 19 + React Router                                  |
+| Build Tool   | Vite                                                     |
+| Styling      | Tailwind CSS                                             |
+| Language     | JavaScript / JSX                                         |
+| Localization | i18next (Arabic & English)                               |
+| Charts       | Recharts                                                 |
+| Animation    | Framer Motion                                            |
+| Storage      | Browser localStorage with versioning & migration support |
+| PWA          | vite-plugin-pwa                                          |
+
+---
+
+# 🚀 Getting Started
+
+## Prerequisites
+
+* **Node.js 18+**
+* npm (included with Node.js)
+
+## 1. Clone the Repository
+
+```bash
+git clone https://github.com/YOUR_USERNAME/FinPath.git
+cd FinPath
+```
+
+## 2. Install Dependencies
 
 ```bash
 npm install
-npm run dev      # start the dev server (http://localhost:5173)
-npm run build    # production build into dist/
-npm run preview  # preview the production build
-npm run lint     # run ESLint
 ```
 
-Requires Node 18+ (developed on Node 22).
+## 3. Start Development Server
+
+```bash
+npm run dev
+```
+
+Vite will display a local development URL (typically **http://localhost:5173**) in the terminal.
+
+The application supports Hot Module Replacement (HMR) for instant updates during development.
 
 ---
 
-## Features
+# 📦 Available Scripts
 
-- **First-run onboarding** — 5-step wizard: financial month start day → income →
-  expense categories → first goal → PWA install guide (with device detection).
-- **Dashboard** — income / expenses / remaining / savings-rate KPIs, financial health
-  ring, monthly spend area chart, category pie breakdown, budget utilization, goal cards.
-- **Expenses** — add / edit / duplicate / delete, search and category filter, scoped to
-  the current financial month.
-- **Income** — recurring or one-time sources with categorization.
-- **Budgets** — per-category limits with on-track / approaching / over-limit alerts.
-- **Goals** — target, monthly contribution, progress %, estimated completion date,
-  and a contribution tracker.
-- **Fixed expenses** — recurring bills automatically carried forward each financial
-  month, each markable Paid / Partial / Unpaid per period.
-- **Analytics** — income-vs-expense bars, savings trend line, per-month savings rate,
-  and lifetime spending by category.
-- **Settings** — financial month start day, currency, theme, language, and full
-  JSON backup export / import / reset.
+| Command   | Description                      |
+| --------- | -------------------------------- |
+| `dev`     | Start development server         |
+| `build`   | Create production build          |
+| `preview` | Preview production build locally |
+| `lint`    | Run ESLint                       |
 
-## Financial month logic
+Run any script using:
 
-Instead of the calendar month, FinPath resets on a user-chosen day (1–28). Monthly
-records (expenses, budget tracking) reflect the current period, while historical
-analytics, goal progress and income history are retained for long-term trends.
-See `src/lib/finance.js`.
-
-## Theming & localization
-
-- Dark theme by default; light theme; preference persisted to `localStorage`.
-- Arabic (RTL, **Tajawal** font) and English (LTR, **Manrope** font) with automatic
-  direction and font switching; language persisted.
-- All amounts render with the custom SAR currency glyph.
-
-## Data, PWA & SEO
-
-- LocalStorage persistence with schema **versioning + migration scaffold** and
-  import/export (`src/lib/storage.js`).
-- Installable PWA with offline service worker and app manifest (`vite-plugin-pwa`).
-- SEO: semantic HTML, canonical URL, Open Graph / Twitter cards, `robots.txt`,
-  `sitemap.xml`, and JSON-LD (`WebApplication`, `Organization`, `FAQPage`) for
-  search and generative-engine discoverability.
-
-## Project structure
-
+```bash
+npm run <script>
 ```
+
+Example:
+
+```bash
+npm run build
+```
+
+## Production Build & Preview
+
+```bash
+npm run build
+npm run preview
+```
+
+---
+
+# 🗂 Project Structure
+
+```text
+public/                 # Static assets, logos, manifest, SEO files
+
 src/
-  components/   Layout, UI primitives, Logo, toggles, error boundary
-  context/      Theme, Locale, Data (useReducer + localStorage) providers
-  features/     Entity forms + onboarding wizard
-  hooks/        useMediaQuery
-  i18n/         i18next setup + en/ar translation trees
-  lib/          constants, finance math, storage, formatting, icon registry
-  pages/        Dashboard, Expenses, Income, Budgets, Goals, FixedExpenses, Analytics, Settings
+├─ components/          # Shared UI components and layouts
+├─ context/             # Theme, Locale and Data providers
+├─ features/            # Onboarding, forms and business features
+├─ hooks/               # Custom React hooks
+├─ i18n/                # Arabic & English translations
+├─ lib/                 # Storage, finance calculations and utilities
+├─ pages/               # Application pages
+└─ assets/              # Images, icons and visual resources
 ```
 
-## Notes
+# 💾 Data & Privacy
 
-- Routes are lazy-loaded and vendor bundles are split (react / charts / motion / i18n)
-  for fast first paint.
-- Icons use named imports via a small registry (`src/lib/icons.js`) so the bundle
-  stays small.
-- Everything runs client-side; clearing browser storage clears all data — use
-  **Settings → Export backup** to keep a copy.
+All user data is stored locally in the browser using `localStorage`.
+
+Stored data includes:
+
+* Income records
+* Expense records
+* Budgets
+* Fixed expenses
+* Financial goals
+* User preferences
+* Theme settings
+* Language settings
+
+No information is transmitted to external servers.
+
+If browser storage is cleared, the data will be removed unless a backup has been exported.
+
+---
+
+# 📅 Financial Month System
+
+FinPath uses a custom financial month instead of the traditional calendar month.
+
+Users can choose any start day between 1 and 28.
+
+For example:
+
+* Salary received on the 25th
+* Financial month starts on the 25th
+* Budget and spending calculations align automatically
+
+When a new financial month begins:
+
+* Monthly expense records are reset
+* Budget tracking starts fresh
+* Fixed expenses are carried forward
+* Historical analytics remain available
+
+This approach provides more accurate budgeting for real-world salary cycles.
+
+---
+
+# 🌐 Localization
+
+FinPath supports:
+
+* English (LTR + Manrope Font)
+* Arabic (RTL + Tajawal Font)
+
+Language switching updates:
+
+* UI text
+* Navigation
+* Forms
+* Date formatting
+* Layout direction
+* Typography
+
+No page refresh required.
