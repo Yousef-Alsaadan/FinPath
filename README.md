@@ -3,7 +3,7 @@
   <h1>FinPath</h1>
   <p><strong>Smart personal finance manager for tracking income, expenses, budgets, fixed bills, and financial goals — built around your own financial month.</strong></p>
   <p>
-    🔗 <strong>Live demo:</strong> <a href="https://your-finpath-url.com/">https://your-finpath-url.com/</a>
+    🔗 <strong>Live demo:</strong> <a href="https://finpath-app.netlify.app">https://finpath-app.netlify.app</a>
   </p>
 </div>
 
@@ -57,7 +57,7 @@ Everything runs locally in your browser — no account, no server, and no subscr
 ## 1. Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/FinPath.git
+git clone https://github.com/Yousef-Alsaadan/FinPath.git
 cd FinPath
 ```
 
